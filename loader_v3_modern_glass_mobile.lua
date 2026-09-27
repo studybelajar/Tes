@@ -567,17 +567,18 @@ AbyssDodge = true, ESPName = true, ESPHealthBar = true, ESPDistance = true, ESPS
         end
     end)()
     _G.ZINKA_KEY = _G.ZINKA_KEY or Enum.KeyCode.RightShift.Name
-    -- Modern dark-glass palette. Functional/UI architecture intentionally preserved from the executable reference.
-    local jnwhbe = Color3.fromRGB(105, 220, 255)
-    local itfalj = Color3.fromRGB(255, 169, 102)
-    local ahkvqt = Color3.fromRGB(173, 145, 255)
+    -- Compact blue glass palette matching the reference layout.
+    local jnwhbe = Color3.fromRGB(35, 154, 255)
+    local itfalj = Color3.fromRGB(255, 168, 76)
+    local ahkvqt = Color3.fromRGB(75, 194, 255)
     local mgaaxo = {Title = Enum.Font.GothamBold, Head = Enum.Font.GothamBold, Body = Enum.Font.GothamMedium, Soft = Enum.Font.Gotham,
      Mono = Enum.Font.RobotoMono, Tab = Enum.Font.GothamMedium,}
     local rxxvgn = {Title = 19, Tab = 13, Section = 11, Row = 13, Value = 12, Small = 11, Tiny = 10,}
-    local jsbusx = {Bright = Color3.fromRGB(242, 247, 255), Normal = Color3.fromRGB(211, 220, 235), Dim = Color3.fromRGB(143, 153, 174), Faint = Color3.fromRGB(83, 91, 112),}
-    local hzowxr = {Row = Color3.fromRGB(20, 23, 32), RowHov = Color3.fromRGB(31, 37, 50), Sub = Color3.fromRGB(14, 17, 25),
-     Btn = Color3.fromRGB(25, 30, 41), BtnHov = Color3.fromRGB(38, 47, 63), Track = Color3.fromRGB(46, 56, 74), Off = Color3.fromRGB(35,
-          39, 51),}
+    local jsbusx = {Bright = Color3.fromRGB(235, 245, 255), Normal = Color3.fromRGB(207, 224, 241), Dim = Color3.fromRGB(137,
+      166, 194), Faint = Color3.fromRGB(82, 116, 146),}
+    local hzowxr = {Row = Color3.fromRGB(18, 35, 56), RowHov = Color3.fromRGB(24, 53, 80), Sub = Color3.fromRGB(12, 27, 45),
+     Btn = Color3.fromRGB(20, 48, 76), BtnHov = Color3.fromRGB(28, 79, 119), Track = Color3.fromRGB(33, 82, 116), Off = Color3.fromRGB(35,
+          58, 80),}
     -- Responsive UI helpers: desktop + touch/mobile layouts.
     local function xk_getViewport()
         local cam = workspace.CurrentCamera
@@ -595,11 +596,11 @@ AbyssDodge = true, ESPName = true, ESPHealthBar = true, ESPDistance = true, ESPS
         local vp = xk_getViewport()
         local mobile = xk_isMobileUI()
         if mobile then
-            local margin = math.clamp(math.floor(math.min(vp.X, vp.Y) * 0.028), 10, 18)
-            local w = math.floor(math.clamp(vp.X - margin * 2, 300, 760))
-            local top = 60
-            local dock = 64
-            local h = math.floor(math.clamp(vp.Y - math.max(18, margin * 2), 400, 840))
+            local margin = math.clamp(math.floor(math.min(vp.X, vp.Y) * 0.025), 8, 18)
+            local w = math.floor(math.clamp(vp.X - margin * 2, 286, 760))
+            local top = 54
+            local dock = 56
+            local h = math.floor(math.clamp(vp.Y - math.max(16, margin * 2), 360, 820))
             if xk_isPortrait() then
                 h = math.min(h, math.floor(vp.Y * 0.92))
             else
@@ -607,9 +608,9 @@ AbyssDodge = true, ESPName = true, ESPHealthBar = true, ESPDistance = true, ESPS
             end
             return {width = w, height = h, margin = margin, header = top, dock = dock}
         end
-        local w = math.floor(math.clamp(vp.X * 0.72, 700, 980))
-        local h = math.floor(math.clamp(vp.Y * 0.72, 460, 700))
-        return {width = w, height = h, margin = 18, header = 60, dock = 0}
+        local w = math.floor(math.clamp(vp.X * 0.72, 680, 900))
+        local h = math.floor(math.clamp(vp.Y * 0.72, 430, 620))
+        return {width = w, height = h, margin = 18, header = 54, dock = 0}
     end
     local function xk_isPointerBegin(input)
         return input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch
@@ -946,25 +947,17 @@ then
     local zuiMetrics = xk_layoutMetrics()
     nkdodd.Size = UDim2.fromOffset(zuiMetrics.width, zuiMetrics.height);
     nkdodd.SizeConstraint = Enum.SizeConstraint.RelativeXY
-    nkdodd.BackgroundColor3 = Color3.fromRGB(10, 12, 18)
+    nkdodd.BackgroundColor3 = Color3.fromRGB(8, 22, 38)
     nkdodd.BorderSizePixel = 0;
     nkdodd.ClipsDescendants = true;
     nkdodd.Parent = mupnyu
     nkdodd.Active = true
-    pzqwiv(nkdodd, 18)
-    local zglassGradient = Instance.new("UIGradient")
-    zglassGradient.Color = ColorSequence.new({
-        ColorSequenceKeypoint.new(0, Color3.fromRGB(18, 22, 32)),
-        ColorSequenceKeypoint.new(0.52, Color3.fromRGB(10, 13, 20)),
-        ColorSequenceKeypoint.new(1, Color3.fromRGB(7, 9, 15)),
-    })
-    zglassGradient.Rotation = 135
-    zglassGradient.Parent = nkdodd
+    pzqwiv(nkdodd, 10)
     local zminmax = Instance.new("UISizeConstraint")
-    zminmax.MinSize = Vector2.new(300, 400)
-    zminmax.MaxSize = Vector2.new(1000, 900)
+    zminmax.MinSize = Vector2.new(286, 320)
+    zminmax.MaxSize = Vector2.new(1000, 820)
     zminmax.Parent = nkdodd
-    local hztwao = czcxwg(nkdodd, Color3.fromRGB(105, 220, 255), 1.4, 0.28)
+    local hztwao = czcxwg(nkdodd, Color3.fromRGB(21, 117, 190), 1.2, 0.12)
     hztwao.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
     local oxusxa = nil
     local yejkel = Instance.new("ImageLabel")
@@ -987,26 +980,17 @@ then
     rzhjgz.Parent = nkdodd
     pzqwiv(rzhjgz, 6)
     local beiugl = Instance.new("Frame")
-    beiugl.Size = UDim2.new(1, 0, 0, 60);
-    beiugl.BackgroundColor3 = Color3.fromRGB(15, 18, 27);
+    beiugl.Size = UDim2.new(1, 0, 0, 48);
+    beiugl.BackgroundColor3 = Color3.fromRGB(7, 28, 50);
     beiugl.BorderSizePixel = 0;
     beiugl.Parent = nkdodd
     local mmdvzu = Instance.new("Frame");
-    mmdvzu.Size = UDim2.new(1, 0, 0, 14);
-    mmdvzu.Position = UDim2.new(0, 0, 1, - 14)
+    mmdvzu.Size = UDim2.new(1, 0, 0, 12);
+    mmdvzu.Position = UDim2.new(0, 0, 1, - 12)
     mmdvzu.BackgroundColor3 = beiugl.BackgroundColor3;
     mmdvzu.BorderSizePixel = 0;
     mmdvzu.Parent = beiugl
-    pzqwiv(beiugl, 16)
-    local zheaderGradient = Instance.new("UIGradient")
-    zheaderGradient.Color = ColorSequence.new({
-        ColorSequenceKeypoint.new(0, Color3.fromRGB(23, 28, 41)),
-        ColorSequenceKeypoint.new(1, Color3.fromRGB(11, 14, 21)),
-    })
-    zheaderGradient.Rotation = 90
-    zheaderGradient.Parent = beiugl
-    local zheaderStroke = czcxwg(beiugl, Color3.fromRGB(105, 220, 255), 1, 0.72)
-    zheaderStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+    pzqwiv(beiugl, 10)
     local tpbrop = Instance.new("TextLabel")
     tpbrop.BackgroundTransparency = 1;
     tpbrop.Position = UDim2.fromOffset(18, 8);
@@ -1104,7 +1088,7 @@ then
         end))
     end)()
     local khtsym = Instance.new("ScrollingFrame")
-    khtsym.Position = UDim2.fromOffset(0, 60);
+    khtsym.Position = UDim2.fromOffset(0, 48);
     khtsym.Size = UDim2.fromOffset(156, 416)
     khtsym.BackgroundColor3 = Color3.fromRGB(7, 25, 43);
     khtsym.BorderSizePixel = 0;
@@ -1129,14 +1113,14 @@ then
     qxhees.PaddingRight = UDim.new(0, 8);
     qxhees.Parent = khtsym
     local mdwekd = Instance.new("Frame")
-    mdwekd.Position = UDim2.fromOffset(156, 60);
+    mdwekd.Position = UDim2.fromOffset(156, 48);
     mdwekd.Size = UDim2.fromOffset(544, 416);
     mdwekd.BackgroundTransparency = 1;
     mdwekd.ClipsDescendants = true;
     mdwekd.Parent = nkdodd
     local tfjkcx = Instance.new("Frame")
     tfjkcx.Name = "ZHeadRule";
-    tfjkcx.Position = UDim2.fromOffset(0, 59);
+    tfjkcx.Position = UDim2.fromOffset(0, 47);
     tfjkcx.Size = UDim2.new(1, 0, 0, 1)
     tfjkcx.BackgroundColor3 = jnwhbe;
     tfjkcx.BackgroundTransparency = 0.35;
@@ -1145,7 +1129,7 @@ then
     tfjkcx.Parent = nkdodd
     local bodoox = Instance.new("Frame")
     bodoox.Name = "ZSideRule";
-    bodoox.Position = UDim2.fromOffset(156, 60);
+    bodoox.Position = UDim2.fromOffset(156, 48);
     bodoox.Size = UDim2.fromOffset(1, 416)
     bodoox.BackgroundColor3 = jnwhbe;
     bodoox.BackgroundTransparency = 0.7;
@@ -1168,8 +1152,8 @@ then
                 nkdodd.Position = UDim2.fromScale(0.5, 0.5)
             end
             local dphucf = mobile and 0 or math.clamp(math.floor(crtubb * 0.22), 130, 210)
-            local contentTop = mobile and 60 or 60
-            local dockH = mobile and 64 or 0
+            local contentTop = mobile and 54 or 48
+            local dockH = mobile and 56 or 0
             local contentH = math.max(rggpvr - contentTop - dockH, 240)
             khtsym.Visible = not mobile
             khtsym.Position = UDim2.fromOffset(0, contentTop)
