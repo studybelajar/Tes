@@ -1,8 +1,4 @@
 return (function ()
-    -- This script requires Roblox APIs that standard Lua does not provide.
-    if type(typeof) ~= "function" or game == nil then
-        return
-    end
     local state = (os.time and 0 or 1)
     if state == 1 then
         return
